@@ -21,4 +21,10 @@ lazy val root = (project in file("."))
     scalaVersion := PROJECT_SCALA_VERSION,
     libraryDependencies ++= librairies
   )
+  .enablePlugins(BuildInfoPlugin)
+  .settings(
+    buildInfoOptions += BuildInfoOption.BuildTime,
+    buildInfoKeys := Seq[BuildInfoKey](name, version, scalaVersion, sbtVersion),
+    buildInfoPackage := "utils"
+  )
 
